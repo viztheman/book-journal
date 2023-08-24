@@ -1,0 +1,12 @@
+mixin deleteModal
+	#deleteModal.modal.fade(tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true")
+		.modal-dialog
+			.modal-content
+				.modal-header
+					h1#deleteModalLabel.modal-title.fs-5 Delete
+					button.btn-class(type="button" data-bs-dismiss="modal" aria-label="Close")
+				.modal-body
+					div Delete?
+				.modal-footer
+					button.btn.btn-secondary(type="button" data-bs-dismiss="modal") No
+					button.btn.btn-primary(type="button") Yes
