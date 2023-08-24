@@ -4,12 +4,12 @@ mixin addEdit(journal)
 			form(action=journal?'/edit/'+journal._id:'/add' method='POST')
 				.mb-4
 					label.form-label(for="title") Title
-					input#title.form-control(name="title" type="text" placeholder="Title" maxlength=100 required autocomplete="no")
+					input#title.form-control(name="title" type="text" placeholder="Title" maxlength=100 required autocomplete="no" value=journal?journal.title:'')
 				.mb-4
 					label.form-label(for="rating") Rating
-					input#rating.form-control(name="rating" type="number" placeholder="Rating" min=1 max=5 required autocomplete="no")
+					input#rating.form-control(name="rating" type="number" placeholder="Rating" min=1 max=5 required autocomplete="no" value=journal?journal.rating:'')
 				.mb-4
 					label.form-label(for="notes") Notes
-					textarea#notes.form-control(name="notes" rows="5" autocomplete="no")
+					textarea#notes.form-control(name="notes" rows="5" autocomplete="no")= journal?journal.notes:''
 				button.btn.btn-primary.me-2(type="submit") Save
 				a.btn.btn-secondary(href="/") Cancel
