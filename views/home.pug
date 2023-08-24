@@ -10,10 +10,13 @@ block body
 					#searchIcon.input-group-text &#x1F50D;
 					input#search.form-control(type="text" placeholder="Search..." aria-label="Search" aria-describedby="searchIcon")
 		.d-flex.flex-wrap.justify-content-center
-			.card.mt-3.me-2(style="width: 18rem;")
-				.card-body
-					.card-title.d-flex.justify-content-between
-						h5
-							a(href="#") Test
-						h5 4 *
-					p.card-text Test
+			each journal in journals
+				.card.mt-3.me-2(style="width: 18rem;")
+					.card-body
+						.card-title.d-flex.justify-content-between
+							h5
+								a(href="#")= journal.title
+							h5
+								span= journal.rating
+								|  &starf;
+						p.card-text= journal.notes
