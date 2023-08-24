@@ -18,6 +18,7 @@ async function main() {
 	app.use('/js', express.static(path.join(__dirname, 'node_modules/jquery/dist')));
 	app.use('/js', express.static(path.join(__dirname, 'node_modules/@popperjs/core/dist/umd')));
 	app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')));
+	app.use('/js', express.static(path.join(__dirname, 'public/js')));
 
 	app.use('/', require('./lib/routers/home'));
 	app.use('/add', require('./lib/routers/add'));

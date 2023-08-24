@@ -8,7 +8,7 @@ block body
 			.col-md-6.offset-md-3
 				.input-group
 					#searchIcon.input-group-text &#x1F50D;
-					input#search.form-control(type="text" placeholder="Search..." aria-label="Search" aria-describedby="searchIcon")
+					input#search.form-control(type="text" placeholder="Search..." aria-label="Search" aria-describedby="searchIcon" autocomplete="off")
 		.d-flex.flex-wrap.justify-content-center
 			each journal in journals
 				.card.mt-3.me-2(style="width: 18rem;")
@@ -20,3 +20,6 @@ block body
 								span= journal.rating
 								|  &starf;
 						p.card-text= journal.notes
+
+block scripts
+	script(src="/js/home.js")
