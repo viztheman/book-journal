@@ -16,5 +16,6 @@ app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/
 app.use('/', require('./lib/routers/home'));
 app.use('/add', require('./lib/routers/add'));
 app.use('/edit', require('./lib/routers/edit'));
+app.use('/details', require('./lib/routers/details'));
 
 app.listen(PORT, () => console.log(`Book Journal listening on port ${PORT}`));

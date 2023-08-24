@@ -1,0 +1,18 @@
+extend _layout
+include _navbar
+include _deleteModal
+
+block body
+	+navbar(true)
+	.container
+		.row.mt-5.mb-2
+			.col.d-flex.justify-content-between
+				h1 Title
+				div
+					button.btn.btn-secondary.me-2(type="button") &#x1F589; Edit
+					button.btn.btn-danger(type="button" data-bs-toggle="modal" data-bs-target="#deleteModal") &#x1F5D1; Delete
+		.row.mt-2
+			.col
+				h4.mb-5 4 *
+				p Notes
+	+deleteModal()
