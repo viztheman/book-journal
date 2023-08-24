@@ -13,6 +13,7 @@ app.use('/js', express.static(path.join(__dirname, 'node_modules/jquery/dist')))
 app.use('/js', express.static(path.join(__dirname, 'node_modules/@popperjs/core/dist/umd')));
 app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')));
 
-app.get('/', (req, res) => res.render('home'));
+app.use('/', require('./lib/routers/home'));
+app.use('/add', require('./lib/routers/add'));
 
 app.listen(PORT, () => console.log(`Book Journal listening on port ${PORT}`));

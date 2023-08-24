@@ -1,0 +1,11 @@
+extend _layout
+include _navbar
+include _addEdit
+
+block body
+	+navbar(false)
+	.container
+		.row.mt-5.mb-4
+			.col
+				h1 Add a book
+		+addEdit()
