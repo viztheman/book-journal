@@ -6,7 +6,10 @@ mixin deleteModal
 					h1#deleteModalLabel.modal-title.fs-5 Delete
 					button.btn-close(type="button" data-bs-dismiss="modal" aria-label="Close")
 				.modal-body
-					div Delete?
-				.modal-footer
+					span Delete 
+					span#deleteTitle
+					span ?
+				form.modal-footer(action="/delete" method="POST")
+					input#deleteId(name="deleteId" type="hidden")
 					button.btn.btn-secondary(type="button" data-bs-dismiss="modal") No
-					button.btn.btn-primary(type="button") Yes
+					button.btn.btn-primary(type="submit") Yes

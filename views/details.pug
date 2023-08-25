@@ -7,10 +7,10 @@ block body
 	.container
 		.row.mt-5.mb-2
 			.col.d-flex.justify-content-between
-				h1= journal.title
+				h1#detailsTitle= journal.title
 				div
 					a.btn.btn-secondary.me-2(href="/edit/"+journal._id) &#x1F589; Edit
-					button.btn.btn-danger(type="button" data-bs-toggle="modal" data-bs-target="#deleteModal") &#x1F5D1; Delete
+					button#delete.btn.btn-danger(type="button" data-deleteid=journal._id data-bs-toggle="modal" data-bs-target="#deleteModal") &#x1F5D1; Delete
 		.row.mt-2
 			.col
 				h4
@@ -24,3 +24,6 @@ block body
 				a.btn.btn-primary(href="/") Close
 
 	+deleteModal()
+
+block scripts
+	script(src="/js/delete.js")

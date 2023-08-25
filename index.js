@@ -24,6 +24,7 @@ async function main() {
 	app.use('/add', require('./lib/routers/add'));
 	app.use('/edit', require('./lib/routers/edit'));
 	app.use('/details', require('./lib/routers/details'));
+	app.use('/delete', require('./lib/routers/delete'));
 
 	app.listen(PORT, () => console.log(`Book Journal listening on port ${PORT}`));
 }
