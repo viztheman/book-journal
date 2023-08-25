@@ -6,6 +6,9 @@ mixin addEdit(journal)
 					label.form-label(for="title") Title
 					input#title.form-control(name="title" type="text" placeholder="Title" maxlength=100 required autocomplete="no" value=journal?journal.title:'')
 				.mb-4
+					label.form-label(for="author") Author
+					input#author.form-control(name="author" type="text" placeholder="Author" maxlength="50" required autocomplete="no" value=journal?journal.author:'')
+				.mb-4
 					label.form-label(for="rating") Rating
 					input#rating.form-control(name="rating" type="number" placeholder="Rating" min=1 max=5 required autocomplete="no" value=journal?journal.rating:'')
 				.mb-4

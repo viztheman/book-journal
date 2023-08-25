@@ -14,12 +14,14 @@ block body
 				.card.mt-3.me-2(style="width: 18rem;")
 					.card-body
 						.card-title.d-flex.justify-content-between
-							h5
-								a(href="/details/"+journal._id)= journal.title
+							div
+								h5
+									a#title(href="/details/"+journal._id)= journal.title
+								small#author= journal.author
 							h5
 								span= journal.rating
 								|  &starf;
-						p.card-text= journal.notes
+						p.card-text.mt-4= journal.notes
 
 block scripts
 	script(src="/js/home.js")

@@ -24,9 +24,10 @@
 
 		$cards.each(function() {
 			const $this = $(this);
-			const title = $this.find('.card-title h5').first().text().toLowerCase();
+			const title = $this.find('#title').text().toLowerCase();
+			const author = $this.find('#author').text().toLowerCase();
 
-			if (title.indexOf(val) >= 0)
+			if (title.indexOf(val) >= 0 || author.indexOf(val) >= 0)
 				$this.removeClass('d-none');
 			else
 				$this.addClass('d-none');

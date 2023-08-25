@@ -13,6 +13,9 @@ block body
 					button#delete.btn.btn-danger(type="button" data-deleteid=journal._id data-bs-toggle="modal" data-bs-target="#deleteModal") &#x1F5D1; Delete
 		.row.mt-2
 			.col
+				h5= journal.author
+		.row.mt-4
+			.col
 				h4
 					span= journal.rating
 					span  &starf;
