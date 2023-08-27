@@ -13,25 +13,47 @@
 		}, delayMs);
 	}
 
-	function search_OnKeyUp() {
-		const val = $(this).val().toLowerCase();
-		const $cards = $('.card');
+	function card(journal) {
+		return `
+			<div class="card book-card mt-3 me-2" style="width: 18rem;">
+				<div class="card-body">
+					<div class="card-title d-flex justify-content-between">
+						<div>
+							<h5>
+								<a class="title" href="/details/${journal._id}">
+									${journal.title}
+								</a>
+							</h5>
+							<small>${journal.author}</small>
+						</div>
+						<h5>
+							${journal.rating} &starf;
+						</h5>
+					</div>
+					<p class="card-text mt-4">${journal.notes}</p>
+				</div>
+			</div>
+		`;
+	}
 
-		if (!val) {
-			$cards.removeClass('d-none');
-			return;
-		}
-
-		$cards.each(function() {
-			const $this = $(this);
-			const title = $this.find('#title').text().toLowerCase();
-			const author = $this.find('#author').text().toLowerCase();
-
-			if (title.indexOf(val) >= 0 || author.indexOf(val) >= 0)
-				$this.removeClass('d-none');
-			else
-				$this.addClass('d-none');
+	async function search_OnKeyUp() {
+		const response = await fetch('/', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				text: $('#search').val()
+			})
 		});
+
+		const data = await response.json();
+		const $cards = $('<div class="cards d-flex flex-wrap justify-content-center"></div>');
+
+		for (const journal of data)
+			$cards.append($(card(journal)));
+
+		$('.cards').replaceWith($cards);
 	}
 
 	$(function() {
