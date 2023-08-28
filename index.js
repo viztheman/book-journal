@@ -9,7 +9,8 @@ const mongoose = require('mongoose');
 main().catch(e => console.error(e));
 
 async function main() {
-	await mongoose.connect(MONGODB);
+	if (MONGODB)
+		await mongoose.connect(MONGODB);
 
 	const app = express();
 	app.set('view engine', 'pug');
