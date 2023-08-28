@@ -15,4 +15,4 @@ mixin addEdit(journal)
 					label.form-label(for="notes") Notes
 					textarea#notes.form-control(name="notes" rows="5" autocomplete="no")= journal?journal.notes:''
 				button.btn.btn-primary.me-2(type="submit") Save
-				a.btn.btn-secondary(href="/") Cancel
+				a.btn.btn-secondary(href=journal?"/details/"+journal._id:"/") Cancel
